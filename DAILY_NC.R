@@ -72,9 +72,9 @@ for (i in 1:NDAYS) {
   print(paste("DAY",i,"t2,rh,ws=",nv_time[stat[i]],"to",nv_time[end[i]], "rain=",nv_time[stat_rf[i]],"to",nv_time[end_rf[i]]))
 }
 
-# NC2CSV_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-# NC2CSV_HRLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
-# NC2CSV_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-# NC_SUMMARY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-# NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC2CSV_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC2CSV_HRLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
+NC2CSV_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_SUMMARY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 METEOGRAM_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
