@@ -22,6 +22,10 @@ dlon=ncvar_get(f1,"longitude")
 
 pr <- ncvar_get( f1,"2m_temperature")+1 %>% round(digits = 2)
 
+nc <- nc_open("../src_files/ap_ds_5k.nc")
+lat <- ncvar_get( nc, "lat" )
+lon <- ncvar_get( nc, "lon" )
+msk <-  ncvar_get(nc,"dist")+1
 
 s2 <- readOGR("../src_files/AP_Dis", "AP_DISTRICT_BND")
 s3 <- readOGR("../src_files/AP_state", "AP_state_gcs1")

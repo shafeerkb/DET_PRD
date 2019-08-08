@@ -15,7 +15,9 @@ library(akima)
 library(plyr)
 library(png)
 library(scales)
-
+library(lattice)
+library(gdata)
+library(chron)
 
 
 substrRight <- function(x, n){
@@ -38,6 +40,10 @@ source('R_script/NC2CSV_DIST.R')
 source('R_script/NC2_SUMMARY.R')
 source('R_script/NC2_RIVER_BASIN.R')
 source('R_script/meteogram_surface.R')
+source('R_script/NC2_RF_AP.R')
+source('R_script/NC2_RF_INDIA.R')
+source('R_script/NC2_T2_AP.R')
+source('R_script/NC2_T2_INDIA.R')
 
 if(TIME=="12_UTC"){
   stat=c(5,13,21,29,37,45,51,55,59)
@@ -72,9 +78,16 @@ for (i in 1:NDAYS) {
   print(paste("DAY",i,"t2,rh,ws=",nv_time[stat[i]],"to",nv_time[end[i]], "rain=",nv_time[stat_rf[i]],"to",nv_time[end_rf[i]]))
 }
 
+NC_SUMMARY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_RF_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_RF_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_T2_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
+NC_T2_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
+METEOGRAM_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
 NC2CSV_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC2CSV_HRLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
 NC2CSV_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-NC_SUMMARY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
-METEOGRAM_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
+
+
+
