@@ -10,7 +10,7 @@ library(ggplot2)
 library(ggpubr)
 library(grid)
 library(lubridate)
-library(xlsx) 
+#library(xlsx) 
 library(akima) 
 library(plyr)
 library(png)
@@ -44,6 +44,9 @@ source('R_script/NC2_RF_AP.R')
 source('R_script/NC2_RF_INDIA.R')
 source('R_script/NC2_T2_AP.R')
 source('R_script/NC2_T2_INDIA.R')
+source('R_script/NC2_SWH_INDIA.R')
+source('R_script/NC2_WSMAX_INDIA.R')
+
 
 if(TIME=="12_UTC"){
   stat=c(5,13,21,29,37,45,51,55,59)
@@ -51,6 +54,10 @@ if(TIME=="12_UTC"){
   
   stat_rf=c(5,13,21,29,37,45,51,55,59)
   end_rf  =c(13,21,29,37,45,51,55,59,63)
+  
+  stat_swh=c(4,12,20,28,36,44,51,55,59)
+  end_swh =c(11,19,27,35,43,50,54,58,62)
+    
   NDAYS=9
   
 }else if(TIME=="00_UTC"){
@@ -60,6 +67,9 @@ if(TIME=="12_UTC"){
   
   stat_rf=c(1,9,17,25,33,41,49,53,57,61)
   end_rf  =c(9,17,25,33,41,49,53,57,61,65)
+  
+  stat_swh=c(1,8,16,24,32,40,48,53,57,61)
+  end_swh  =c(7,15,23,31,39,47,52,56,60,64)
 
   NDAYS=10
 }
@@ -83,11 +93,13 @@ NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_RF_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_RF_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_T2_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
+NC_SWH_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
+NC_WSMAX_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
 NC_T2_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
 METEOGRAM_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
-# NC2CSV_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC2CSV_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 # NC2CSV_HRLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
-# NC2CSV_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+#NC2CSV_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 
 nc_close(f1)
 
