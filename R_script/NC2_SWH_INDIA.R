@@ -96,7 +96,7 @@ grid.raster(VASAR,x=0.73,y=.18, width=unit(0.45, "npc"), interp=FALSE)
 
 grid.text("Sea State Forecast", x=.5, .96, gp=gpar(fontsize=18,fontface = "bold") , check=TRUE)
 
-grid.text("State of Sea (Significant Wave Height)", x=.65, y=0.31, gp=gpar(fontsize=11,fontface = "bold") , check=TRUE)
+grid.text("State of the Sea (Significant Wave Height)", x=.65, y=0.31, gp=gpar(fontsize=10,fontface = "bold") , check=TRUE)
 grid.text(paste("Date: ",format(nv_time[stat_swh[1]],"%Y_%b_%d"),sep = ""), x=.5, .915, gp=gpar(fontsize=13,fontface = "bold") , check=TRUE)
 grid.rect(width = .9, height = 0.001,x=.5,y=.89,  gp=gpar(col=NA, fill=rgb(0, 0,0,alpha=0.2)))
 

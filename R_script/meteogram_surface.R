@@ -150,7 +150,7 @@ t2m <- ggplot(data=df, aes(x=Time, y=t2)) + #geom_line(aes(x=Time, y=HI))+
   #   theme_linedraw()+
   theme_gray()+
   geom_bar(aes(x=Time, y=min(df$t2)),width = 8500,stat="identity")+
-  ylab("2m Temperature (?C)") +
+  ylab("2m Temperature (°C)") +
   geom_line(colour = "red",alpha=1,size=1)+
   geom_line(aes(x=Time, y=HI),colour = "maroon1",alpha=1,size=.8,linetype = "dashed")+
   geom_line(aes(x=Time, y=rht2),colour = "forestgreen",alpha=1,size=1)+
@@ -158,7 +158,7 @@ t2m <- ggplot(data=df, aes(x=Time, y=t2)) + #geom_line(aes(x=Time, y=HI))+
   theme(axis.text.x = element_blank(),axis.title.x = element_blank())+
 #  scale_y_continuous(limits = c(min(df$t2), max(df$t2)))+
   scale_x_datetime(date_breaks = "1 day", labels = date_format("%b %d"))+
- # labs(y = "2m Temperature (?C)", x = "Date and time", colour = "")+
+ # labs(y = "2m Temperature (°C)", x = "Date and time", colour = "")+
  # theme(legend.position = c(.9, .8))+
   theme(plot.margin = unit(c(0,0,.0,.0), "lines"))+
   theme(axis.title.y = element_text(color="red", size=12, face="bold"),
@@ -199,11 +199,11 @@ grid.rect(width = .05, height = 0.007,x=.47,y=.88,  gp=gpar(col=NA, fill="red"))
 grid.rect(width = .05, height = 0.007,x=.47,y=.92,  gp=gpar(col=NA, fill="maroon1"))
 grid.rect(width = .05, height = 0.007,x=.47,y=.96,  gp=gpar(col=NA, fill="forestgreen"))
 
-grid.text("2m Temperature (?C)", x=.5, .88, gp=gpar(fontsize=12,fontface = "bold") , check=TRUE,just = "left")
-grid.text("Heat Index (?C)", x=.5, .92, gp=gpar(fontsize=12,fontface = "bold") , check=TRUE,just = "left")
+grid.text("2m Temperature (°C)", x=.5, .88, gp=gpar(fontsize=12,fontface = "bold") , check=TRUE,just = "left")
+grid.text("Heat Index (°C)", x=.5, .92, gp=gpar(fontsize=12,fontface = "bold") , check=TRUE,just = "left")
 grid.text("2m RH (%)", x=.5, .96, gp=gpar(fontsize=12,fontface = "bold") , check=TRUE,just = "left")
 
-grid.text("Heat Index (?C)", x=.02, .38,rot = 90, gp=gpar(fontsize=12,fontface = "bold",col="maroon1") , check=TRUE,just = "left")
+grid.text("Heat Index (°C)", x=.02, .38,rot = 90, gp=gpar(fontsize=12,fontface = "bold",col="maroon1") , check=TRUE,just = "left")
 grid.text(paste(aws_loc$VILLAGE[i]," (",round(aws_loc$LON[i],3),"E,",round(aws_loc$LAT[i],3),"N)",sep = ""), x=.025, .90, gp=gpar(fontsize=16,fontface = "bold") , check=TRUE,just = "left")
 grid.text("5 day 3-hourly Forecast Meteogram", x=.025, .95, gp=gpar(fontsize=16,fontface = "bold") , check=TRUE,just = "left")
 

@@ -46,6 +46,8 @@ source('R_script/NC2_T2_AP.R')
 source('R_script/NC2_T2_INDIA.R')
 source('R_script/NC2_SWH_INDIA.R')
 source('R_script/NC2_WSMAX_INDIA.R')
+source('R_script/NC2_T2_MIN_INDIA.R')
+source('R_script/NC2_T2_MIN_AP.R')
 
 
 if(TIME=="12_UTC"){
@@ -93,6 +95,9 @@ NC_RIVERBASIN(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_RF_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_RF_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
 NC_T2_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
+NC_T2_MIN_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh)
+NC_T2_MIN_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh)
+
 NC_SWH_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
 NC_WSMAX_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
 NC_T2_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end)
