@@ -49,6 +49,7 @@ source('R_script/NC2_WSMAX_INDIA.R')
 source('R_script/NC2_T2_MIN_INDIA.R')
 source('R_script/NC2_T2_MIN_AP.R')
 source('R_script/NC2_RF_INDIA_DIST.R')
+source('R_script/NC2_Tmin_INDIA_DIST.R')
 
 
 if(TIME=="12_UTC"){
@@ -100,6 +101,9 @@ NC_T2_MIN_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh)
 NC_T2_MIN_AP(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh)
 
 NC_RF_INDIA_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat,end,stat_rf,end_rf)
+NC_T2_INDIA_DIST(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
+
+
 NC_SWH_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
 NC_WSMAX_INDIA(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time,stat_swh,end_swh,stat_rf,end_rf)
 METEOGRAM_DLY(out.dir,ncfile, DAYY,TIME,NDAYS,nv_time)
